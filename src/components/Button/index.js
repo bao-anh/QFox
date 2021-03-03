@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../App';
 import {
   Container,
 } from './styles.js'
 
 const Button = ({ color, label }) => {
+  const { theme, updateBackground } = useContext(ThemeContext);
+
   return (
     <Container
-      color={color || 'primary'}
+      backgroundColor={color || theme.palette.primary}
+      color={color === theme.palette.secondary ? '#FFF' : '#000' }
+      onClick={updateBackground}
     >
-      {label.toUpperCase() || 'BUTTON'}
+      {label ? label.toUpperCase() : 'BUTTON'}
     </Container>
   )
 };
