@@ -9,8 +9,9 @@ const Button = ({ color, label }) => {
 
   return (
     <Container
-      backgroundColor={color || theme.palette.primary}
-      color={color === theme.palette.secondary ? '#FFF' : '#000' }
+      backgroundColor={color || theme.palette.primary.background}
+      hoverColor={color || theme.palette.primary.hover}
+      color={theme.buttonColor}
       onClick={updateBackground}
     >
       {label ? label.toUpperCase() : 'BUTTON'}
